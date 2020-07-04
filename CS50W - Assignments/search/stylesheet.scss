@@ -1,0 +1,132 @@
+$font: arial, sans-serif;
+$google_blue: #176BEF;
+
+%button {
+    font-family: $font;
+    color: grey;
+    border: 1px solid white;
+    padding: 10px;
+    &:hover {
+        color: black;
+        border: 1px solid grey;
+        cursor:pointer;
+        border-radius: 5px;
+    }
+
+    &:focus {
+        outline-color: $google_blue;
+    }
+}
+
+.search_bar {
+    size: 110;
+    border-radius: 25px;
+    border: 1px solid grey;
+    padding: 8px;
+    position: absolute;
+    top: 340px;
+    left: 420px;
+    outline: none;
+    &:hover {
+        border: 1.5px solid grey;
+    }
+}
+
+.logo {
+    position: absolute;
+    left: 500px;
+    top: 200px;
+}
+
+#search_button {
+    @extend %button;
+    position: absolute;
+    left: 520px;
+    top: 400px;
+}
+
+#search_button_img {
+    @extend %button;
+    position:absolute;
+    left: 600px;
+    top:400px;
+}
+
+#lucky_button {
+    @extend %button;
+    position: absolute;
+    left: 650px;
+    top: 400px;
+}
+
+.link {
+    color:black;
+    text-decoration: none;
+    position:absolute;
+    left: 1230px;
+    
+    &:hover {
+        text-decoration: underline;
+        color: grey;
+        text-decoration-color: grey;
+    }
+}
+
+#AS_button {
+    background-color: $google_blue;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    border: 0.5px solid grey;
+    &:hover {
+        border: 0.5px solid black;
+        cursor: pointer;
+    }
+    position: relative;
+    left: 270px;
+    top: 15px;
+}
+
+#as_paragraph {
+    color: red;
+    font-size: 24px;
+    font-family: $font;
+}
+
+.container {
+    padding: 40px;
+}
+
+.form_container {
+    position:absolute;
+    left:300px;
+    top: 170px;
+    input {
+        margin: 7px;
+        outline-color: $google_blue;
+    }
+
+    input[type=text] {
+        width: 380px;
+    }
+}
+/* scrollbar code took from https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
