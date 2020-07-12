@@ -1,0 +1,15 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %} 
+    {{ page }} 
+{% endblock %}
+
+{% block body %}
+    {% if entry is not None %}
+        {{ entry|safe }}
+        <a href="{% url 'wiki:edit_page' page %}">Edit</a>
+    {% else %}
+        <h1> Page Not Found</h1>
+        There is not a page for "{{ page }}" yet. You can make one <a href="{% url 'wiki:add_page' %}"> here </a>
+    {% endif %}
+{% endblock %}
