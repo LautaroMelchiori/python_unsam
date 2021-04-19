@@ -1,42 +1,23 @@
+# informe_funciones.py
 import csv
+from fileparse import parse_csv
 from pprint import pprint
 
 LISTA_PRECIOS = '../Data/precios.csv'
-CAMION = '../Data/fecha_camion.csv'
+CAMION = '../Data/camion.csv'
 
 #--------------------------------------------------------------------------------------------------------------------------
 # Ejercicio 2.16
+# Modificado ejercicio 6.11
 
 def leer_camion(nombre_archivo):
-    informe = []
-    with open(nombre_archivo, 'rt') as f:
-        rows = csv.reader(f)
-        headers = next(rows)
-        for row in rows:
-            record = dict(zip(headers, row))
-            try:
-                lote = {'nombre' : record['nombre'],
-                        'cajones' : int(record['cajones']),
-                        'precio' : float(record['precio'])}
-                informe.append(lote)
-            # manejamos el error que puede surgir si hay una linea con datos faltantes
-            except IndexError:
-                continue
-    return informe
+    return parse_csv(nombre_archivo, types = [str, int, float])
 #--------------------------------------------------------------------------------------------------------------------------
 # Ejercicio 2.17
+# Modificado ejercicio 6.11
 
 def leer_precios(nombre_archivo):
-    listado_de_precios = {}
-    with open(nombre_archivo, 'rt') as f:
-         rows = csv.reader(f)
-         for row in rows:
-             try:
-                 listado_de_precios[row[0]] = float(row[1])
-             # manejamos el error que puede surgir si aparece una linea vacia
-             except IndexError:
-                 continue
-    return listado_de_precios
+    return dict(parse_csv(nombre_archivo, types = [str, float], has_headers = False))
 #--------------------------------------------------------------------------------------------------------------------------
 # Ejercicio 3.13
 
