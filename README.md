@@ -1,1 +1,1 @@
-"# Python_unsam" 
+"Repo privado para controlar las versiones y los ejercicios de mi curso de programación en python" 
