@@ -1,6 +1,7 @@
 # bbin.py
 import time
 
+# Funcion de utilidad
 def encontrar_medio(lista):
     """
     Devuelve el indice central de una lista
@@ -42,9 +43,9 @@ def busqueda_binaria(lista, x):
 
 def donde_insertar(lista, x):
     """
-    Búsqueda binaria
+    Buscar posicion de insercion
     Precondición: la lista está ordenada
-    Si x está en lista Devuelve p tal que lista[p] == x, 
+    Si x está en lista devuelve p tal que lista[p] == x, 
     Si x no está en lista devuelve p tal que lista.insert(p, x) inserta x y mantiene la lista ordenada
     """
 
@@ -72,7 +73,7 @@ def donde_insertar(lista, x):
 def insertar(lista, x):
     """
     Insertar
-    Recibe una lista ordenada y un elemento
+    Precondición: la lista está ordenada
     Si x está en lista Devuelve p tal que lista[p] == x, 
     Si x no está en lista lo inserta en una posición tal que la lista se mantenga ordenada, y devuelve la posición en que inserto
     """
