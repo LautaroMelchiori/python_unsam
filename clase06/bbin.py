@@ -1,5 +1,4 @@
 # bbin.py
-import time
 
 # Funcion de utilidad
 def encontrar_medio(lista):
