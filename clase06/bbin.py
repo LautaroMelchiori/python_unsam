@@ -38,6 +38,8 @@ def busqueda_binaria(lista, x):
     else:
         return -1
 
+# Ejercicio 6.14
+
 def donde_insertar(lista, x):
     """
     Búsqueda binaria
