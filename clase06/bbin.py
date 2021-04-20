@@ -66,3 +66,36 @@ def donde_insertar(lista, x):
         return medio
     else: # if lista[medio] < x:
         return medio + 1
+
+# Ejercicio 6.15
+
+def insertar(lista, x):
+    """
+    Insertar
+    Recibe una lista ordenada y un elemento
+    Si x está en lista Devuelve p tal que lista[p] == x, 
+    Si x no está en lista lo inserta en una posición tal que la lista se mantenga ordenada, y devuelve la posición en que inserto
+    """
+
+    medio = encontrar_medio(lista)
+    izq = 0
+    der = len(lista) - 1
+
+    while lista[izq : der]:
+        if lista[medio] == x:
+            return medio
+        elif lista[medio] < x:
+            izq = medio + 1
+            medio += encontrar_medio(lista[izq : der + 1]) + 1
+        else: # if lista[medio] > x:
+            der = medio - 1
+            medio -= encontrar_medio(lista[izq : der + 1]) + 1
+
+    if lista[medio] == x:
+        return medio
+    elif lista[medio] > x:
+        lista.insert(medio, x)
+        return medio
+    else: # if lista[medio] < x:
+        lista.insert(medio + 1, x)
+        return medio + 1
