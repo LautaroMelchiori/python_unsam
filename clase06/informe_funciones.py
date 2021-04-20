@@ -62,7 +62,7 @@ def informe_camion(nombre_archivo_camion, nombre_archivo_precios):
     informe = hacer_informe(camion, precios)
     imprimir_informe(informe)
 
-informe_camion('../Data/camion.csv', '../Data/precios.csv')
+# informe_camion('../Data/camion.csv', '../Data/precios.csv')
 
 #--------------------------------------------------------------------------------------------------------------------------
 # Ejercicio 2.18
