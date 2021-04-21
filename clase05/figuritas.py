@@ -37,7 +37,7 @@ print(f'Hay que comprar, en promedio, {calcular_promedio_figus(6, 1000)} figus p
 print(f'Hay que comprar, en promedio, {calcular_promedio_figus(670, 100)} figus para completar un album de 670')
 
 # Ejercicio 5.15 y 5.16
-def comprar_paquete(figus_total, figus_paquete, con_figus_repetidas):
+def comprar_paquete(figus_total, figus_paquete, con_figus_repetidas = False):
     if con_figus_repetidas:
         return [comprar_figu(figus_total) for _ in range(figus_paquete)]
     else:
@@ -46,7 +46,7 @@ def comprar_paquete(figus_total, figus_paquete, con_figus_repetidas):
         
 
 # Ejercicio 5.17
-def cuantos_paquetes(figus_total, figus_paquete, paquetes_con_figus_repetidas):
+def cuantos_paquetes(figus_total, figus_paquete, paquetes_con_figus_repetidas = False):
     # paquetes_con_figus_repetidas es un booleano que indica si queremos calcular con paquetes que pueden tener figus repetidas o no
     album = crear_album(figus_total)
     paquetes = 0
