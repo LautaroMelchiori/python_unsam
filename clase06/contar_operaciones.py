@@ -26,9 +26,9 @@ def busqueda_binaria(lista, x):
     der = len(lista) - 1
 
     while lista[izq : der]:
-        comps += 2 # sumo las comparaciones que estoy por hacer
+        comps += 1 # sumo las comparaciones que estoy por hacer
         if lista[medio] > x:
-            comps -= 1 # si la primera se cumple, no haremos la segunda comparacion asi que ajustamos el contador
+            #comps -= 1 # si la primera se cumple, no haremos la segunda comparacion asi que ajustamos el contador
             der = medio - 1
             medio -= encontrar_medio(lista[izq : der + 1]) + 1
         elif lista[medio] < x:
