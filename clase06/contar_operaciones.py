@@ -9,7 +9,6 @@ def encontrar_medio(lista):
     """
     return  int(len(lista) / 2 - 0.5)
 
-
 # Implementacion propia de una busqueda binaria
 # Ejercicio 6.19
 
