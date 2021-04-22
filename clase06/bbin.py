@@ -16,7 +16,7 @@ def busqueda_binaria(lista, x):
     Búsqueda binaria
     Precondición: la lista está ordenada
     Devuelve -1 si x no está en lista;
-    Devuelve p tal que lista[p] == x, si x está en lista
+    Devuelve p tal que lista[p] == x, si x está en la lista
     """
 
     medio = encontrar_medio(lista)
