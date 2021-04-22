@@ -73,7 +73,7 @@ def insertar(lista, x):
     """
     Insertar
     Precondición: la lista está ordenada
-    Si x está en la lista Devuelve p tal que lista[p] == x, 
+    Si x está en la lista devuelve p tal que lista[p] == x, 
     Si x no está en lista lo inserta en una posición tal que la lista se mantenga ordenada, y devuelve la posición en que inserto
     """
 
