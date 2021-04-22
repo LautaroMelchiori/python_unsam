@@ -44,7 +44,7 @@ def donde_insertar(lista, x):
     """
     Buscar posicion de insercion
     Precondición: la lista está ordenada
-    Si x está en lista devuelve p tal que lista[p] == x, 
+    Si x está en la lista devuelve p tal que lista[p] == x, 
     Si x no está en lista devuelve p tal que lista.insert(p, x) inserta x y mantiene la lista ordenada
     """
 
