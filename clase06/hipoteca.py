@@ -1,5 +1,5 @@
 # hipoteca.py
-# Archivo
+# Archiv
 # Ejercicio de hipoteca
 
 # Ejercicio 1.11
