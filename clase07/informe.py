@@ -11,13 +11,15 @@ CAMION = '../Data/camion.csv'
 # Modificado ejercicio 6.11
 
 def leer_camion(nombre_archivo):
-    return parse_csv(nombre_archivo, types = [str, int, float])
+    with open(nombre_archivo, 'rt') as filas:
+        return parse_csv(filas, types = [str, int, float])
 #--------------------------------------------------------------------------------------------------------------------------
 # Ejercicio 2.17
 # Modificado ejercicio 6.11
 
 def leer_precios(nombre_archivo):
-    return dict(parse_csv(nombre_archivo, types = [str, float], has_headers = False))
+    with open(nombre_archivo, 'rt') as filas:
+        return dict(parse_csv(filas, types = [str, float], has_headers = False))
 #--------------------------------------------------------------------------------------------------------------------------
 # Ejercicio 3.13
 
@@ -70,6 +72,7 @@ def main(parametros):
 
 if __name__ == '__main__':
     import sys
+    print(sys.argv)
     main(sys.argv)
 #--------------------------------------------------------------------------------------------------------------------------
 """
