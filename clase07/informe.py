@@ -9,6 +9,7 @@ CAMION = '../Data/camion.csv'
 #--------------------------------------------------------------------------------------------------------------------------
 # Ejercicio 2.16
 # Modificado ejercicio 6.11
+# Modificado ejercicio 7.5
 
 def leer_camion(nombre_archivo):
     with open(nombre_archivo, 'rt') as filas:
@@ -16,6 +17,7 @@ def leer_camion(nombre_archivo):
 #--------------------------------------------------------------------------------------------------------------------------
 # Ejercicio 2.17
 # Modificado ejercicio 6.11
+# Modificado ejercicio 7.5
 
 def leer_precios(nombre_archivo):
     with open(nombre_archivo, 'rt') as filas:
