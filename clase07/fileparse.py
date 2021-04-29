@@ -106,7 +106,7 @@ def parse_csv(nombre_archivo, select = None, types = None):
 
 def parse_csv(f, select = None, types = None, has_headers = True, silence_errors = True):
     '''
-    Parsea un archivo CSV en una lista de registros.
+    Parsea datos a partir de lineas de texto en formato CSV y los devuelve una lista de diccionarios
     Se puede seleccionar sólo un subconjunto de las columnas, determinando el parámetro select, que debe ser una lista de nombres de las columnas a considerar.
     Se puede elegir el tipo de dato en que cada fila debe ser devuelta, determinando el parámetro types, que debe ser una lista de funciones de conversión (str, float, int, etc.).
     Se puede parsear un archivo sin encabezados, determinando el parametro has_headers a False, en cuyo caso la funcion devolvera una lista de tuplas, una por fila
