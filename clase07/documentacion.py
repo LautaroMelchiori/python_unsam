@@ -22,9 +22,11 @@ def suma_pares(l):
     Si 'l' esta vacia o no contiene numeros pares, retorna 0
 
     Pre: 'l' debe ser una lista compuesta unicamente por numeros
-    Pos: Se devolvera la suma de todos los valores contenidos en 'l' que sean multiplos de 2
+    Pos: Se devolvera la suma de todos los valores contenidos en 'l'
+         que sean multiplos de 2
 
-    Invariante de ciclo: 'res' es igual a la suma de todos los numeros pares contenidos en la porcion ya recorrida de la lista
+    Invariante de ciclo: 'res' es igual a la suma de todos los numeros pares
+                         contenidos en la porcion ya recorrida de la lista
     """
     res = 0
     for e in l:
@@ -55,13 +57,15 @@ def veces(a, b):
 
 def collatz(n):
     """
-    Calcula la cantidad de sucesiones necesarias para llegar a 1 partiendo de 'n'
-    y aplicando la conjetura de collatz
+    Calcula la cantidad de sucesiones necesarias para llegar a 1
+    partiendo de 'n' y aplicando la conjetura de collatz
 
     Pre: 'n' es un entero positivo
-    Pos: Se devolvera la cantidad de pasos que tomó llegar a 1 aplicando la conjetura de collatz
+    Pos: devuelve la cantidad de pasos que tomó llegar a 1 
+         aplicando la conjetura de collatz
     
-    Invariante de ciclo: 'res' es la cantidad de pasos que dimos hasta ahora, y 'n' es el numero en el que nos encontramos actualmente
+    Invariante de ciclo: 'res' es la cantidad de pasos que dimos hasta ahora,
+    y 'n' es el numero en el que nos encontramos actualmente
     """
     res = 1
 
