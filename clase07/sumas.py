@@ -12,6 +12,8 @@ def sumar_enteros(desde, hasta):
     Pre: desde y hasta son números enteros
     Pos: Se devuelve el valor de sumar todos los números del intervalo
         [desde, hasta]. Si el intervalo es vacío se devuelve 0
+
+    Invariante de ciclo: suma_total es igual a la suma de todos los numeros ya recorridos del intervalo [desde, hasta]
     '''
 
     if hasta < desde:
