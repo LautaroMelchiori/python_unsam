@@ -103,6 +103,7 @@ def parse_csv(nombre_archivo, select = None, types = None):
 """
 # Ejercicio 6.9
 # Lancemos errores, Atrapemos errores y ejercicio 7.1 agregados
+# Ejercicio 7.4
 
 def parse_csv(f, select = None, types = None, has_headers = True, silence_errors = True):
     '''
