@@ -16,5 +16,4 @@ for x, y in zip(X, Y2):
 
 plt.ylim(-1.25, +1.25)
 
-
 plt.show()
