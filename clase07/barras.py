@@ -11,6 +11,7 @@ plt.bar(X, -Y2, facecolor='#ff9999', edgecolor='white')
 for x, y in zip(X, Y1):
     plt.text(x + 0.4, y + 0.05, '%.2f' % y, ha='right', va='bottom')
 
+
 for x, y in zip(X, Y2):
     plt.text(x - 0.4, -y -0.05, f'{y:.2f}', ha = 'left', va = 'top')
 
