@@ -1,12 +1,14 @@
 import datetime
 
-def calcular_vida(b_day):
+# Ejercicio 8.1
+
+def segundos_transcurridos(fecha):
     """
-    Recibe una fecha de nacimiento en formato 'dd/mm/AAAA'
+    Recibe una fecha en formato 'dd/mm/AAAA'
     y devuelve la cantidad de segundos desde las 00:00hs de esa fecha
     """
-    fecha = datetime.datetime.strptime(b_day, '%d/%m/%Y')
-    hoy = datetime.datetime.now()
-    segundos_transcurridos = fecha - hoy
+    date = datetime.datetime.strptime(fecha, '%d/%m/%Y')
+    now = datetime.datetime.now()
+    segundos_transcurridos = date - now
 
     return abs(segundos_transcurridos.total_seconds())
