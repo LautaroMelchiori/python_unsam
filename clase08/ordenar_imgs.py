@@ -26,22 +26,22 @@ def procesar_nombre(nombre):
 
 
 def procesar_img(archivo, path, destino):
-        """
-        Recibe el nombre de un archivo y su path y lo procesa
-        Procesar es:
-        - leer la fecha codificada en su nombre
-        - usar esa fecha para setear la ultima modificacion
-        - cambia el nombre del archivo eliminando la fecha
-        - mueve el archivo al directorio destino
-        """
-        fecha, nombre_procesado = procesar_nombre(archivo)
+    """
+    Recibe el nombre de un archivo y su path y lo procesa
+    Procesar es:
+    - leer la fecha codificada en su nombre
+    - usar esa fecha para setear la ultima modificacion
+    - cambia el nombre del archivo eliminando la fecha
+    - mueve el archivo al directorio destino
+    """
+    fecha, nombre_procesado = procesar_nombre(archivo)
 
-        # modificamos la fecha de acceso y modificacion
-        ts_fecha = fecha.timestamp()
-        os.utime(path, (ts_fecha, ts_fecha))
+    # modificamos la fecha de acceso y modificacion
+    ts_fecha = fecha.timestamp()
+    os.utime(path, (ts_fecha, ts_fecha))
 
-        # cambiamos el nombre de archivo y lo movemos al destino
-        os.rename(path, os.path.join(destino, nombre_procesado))
+    # cambiamos el nombre de archivo y lo movemos al destino
+    os.rename(path, os.path.join(destino, nombre_procesado))
 
         
 
