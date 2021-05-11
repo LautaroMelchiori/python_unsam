@@ -1,5 +1,5 @@
-import pandas as pd
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
 
 # idx = pd.date_range('20200923 14:00', periods = 120, freq = 'min')
@@ -25,5 +25,7 @@ nsuav = ['S_' + n for n in nombres]
 df_walk_suav.columns = nsuav # cambio el nombre de las columnas
                              # para los datos suavizados
 df_walk_suav.plot()
+
+df_walk_suav.to_csv('caminata_apostolica.csv')
 
 plt.show()
