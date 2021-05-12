@@ -19,6 +19,6 @@ dh_ba = dh['H_BA']
 # para compensar por la hora de desplazamiento)
 delta_h = abs(dh_sf.iloc[0] - dh_ba.iloc[0]) - abs(dh_sf.iloc[0] - dh_sf.iloc[1])
 
-pd.DataFrame([dh['H_SF'].shift(delta_t) - delta_h, dh['H_BA']]).T.plot()
+pd.DataFrame([dh_sf.shift(delta_t) - delta_h, dh_ba]).T.plot()
 
 plt.show()
