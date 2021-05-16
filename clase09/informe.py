@@ -2,6 +2,8 @@
 import csv
 from fileparse import parse_csv
 from lote import Lote
+import formato_tabla
+
 #--------------------------------------------------------------------------------------------------------------------------
 # Ejercicio 2.16
 # Modificado ejercicio 6.11
@@ -39,28 +41,44 @@ def hacer_informe(lotes, precios):
 #--------------------------------------------------------------------------------------------------------------------------
 # Ejercicio 3.15 (y 3.16)
 # Modificacion ejercicio 6.4 (y 6.5)
+# Modificado ejercicio 9.5
 
-def imprimir_informe(informe):
+def imprimir_informe(informe, formateador):
     """
     Recibe un informe y lo imprime en pantalla, formateado como tabla
     """
-    headers = ('Nombre', 'Cajones', 'Precio', 'Cambio')
-    print(f'{headers[0]:>10s} {headers[1]:>10s} {headers[2]:>10s} {headers[3]:>10s}')
-    print('---------- ---------- ---------- ----------')
+    formateador.encabezado(['Nombre', 'Cajones', 'Precio', 'Cambio'])
     for nombre, cajones, precio, cambio in informe:
-        precio = '$' + str(round(precio,2))
-        print(f'{nombre:>10s} {cajones:>10d} {precio:>10s} {cambio:>10.2f}')
+        rowdata = [ nombre, str(cajones), f'{precio:0.2f}', f'{cambio:0.2f}' ]
+        formateador.fila(rowdata)
 
-def informe_camion(nombre_archivo_camion, nombre_archivo_precios):
-    camion = leer_camion(nombre_archivo_camion)
-    precios = leer_precios(nombre_archivo_precios)
-    informe = hacer_informe(camion, precios)
-    imprimir_informe(informe)
+def informe_camion(archivo_camion, archivo_precios, fmt = 'txt'):
+    '''
+    Crea un informe con la carga de un camión
+    a partir de archivos camion y precio.
+    El formato predeterminado de la salida es .txt
+    Alternativas: .csv o .html
+    '''
+    # Lee archivos de datos
+    camion = leer_camion(archivo_camion)
+    precios = leer_precios(archivo_precios)
+
+    # Crea la data del informe
+    data_informe = hacer_informe(camion, precios)
+
+    # Imprime el informe
+    formateador = formato_tabla.crear_formateador(fmt)
+    imprimir_informe(data_informe, formateador)
 
 # Ejercicio 7.2 y 7.3
 
 def main(parametros):
-    informe_camion(parametros[1], parametros[2])
+    if len(parametros) == 4:
+        informe_camion(parametros[1], parametros[2], parametros[3])
+    elif len(parametros) == 3:
+        informe_camion(parametros[1], parametros[2])
+    else:
+        print('Uso: informe.py archivo_camion archivo_precio formato(opcional)')
 
 
 if __name__ == '__main__':
