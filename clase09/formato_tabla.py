@@ -70,3 +70,19 @@ def crear_formateador(fmt):
         return FormatoTablaCSV()
     elif fmt == 'html':
         return FormatoTablaHTML()
+
+def imprimir_tabla(objects, attrs, fmt):
+    fmt.encabezado(attrs)
+    for object in objects:
+        rowdata = []
+        for attr in attrs:
+            item = getattr(object, attr, None)
+            
+            # make every item a string and round floats to 2 decimals
+            if isinstance(item, float):
+                item = f'{item:0.2f}'
+            else:
+                item = str(item)
+                
+            rowdata.append(item)
+        fmt.fila(rowdata)
