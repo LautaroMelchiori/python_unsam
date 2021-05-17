@@ -6,6 +6,9 @@ class Lote():
         self.cajones = cajones
         self.precio = precio
     
+    def __repr__(self) -> str:
+        return f"Lote('{self.nombre}', {self.cajones}, {self.precio})"
+
     def costo(self):
         """
         Retorna el costo del lote (cajones * precio)
