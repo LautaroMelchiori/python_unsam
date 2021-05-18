@@ -1,7 +1,8 @@
 # Torre de control
 
 class Cola:
-    '''Representa a una cola, con operaciones de encolar y desencolar.
+    '''
+    Representa a una cola, con operaciones de encolar y desencolar.
     El primero en ser encolado es tambien el primero en ser desencolado.
     '''
 
@@ -14,21 +15,29 @@ class Cola:
         self.items.append(x)
 
     def desencolar(self):
-        '''Elimina el primer elemento de la cola 
+        '''
+        Elimina el primer elemento de la cola 
         y devuelve su valor. 
-        Si la cola esta vacia, levanta ValueError.'''
+        Si la cola esta vacia, levanta ValueError.
+        '''
         if self.esta_vacia():
             raise ValueError('La cola esta vacia')
         return self.items.pop(0)
 
     def esta_vacia(self):
-        '''Devuelve 
+        '''
+        Devuelve 
         True si la cola esta vacia, 
-        False si no.'''
+        False si no.
+        '''
         return len(self.items) == 0
     
 class TorreDeControl():
     def __init__(self):
+        """
+        Crea una torre de control con 2 colas:
+        Una para los aterrizajes y otra para los despegues
+        """
         self.aterrizajes = Cola()
         self.despegues = Cola()
 
@@ -69,5 +78,3 @@ class TorreDeControl():
         else:
             vuelo = self.aterrizajes.desencolar()
             print(f'El vuelo {vuelo} aterrizó con exito.')
-
-        
