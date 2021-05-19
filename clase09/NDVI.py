@@ -95,10 +95,10 @@ plt.show()
 # Ejercicio 9.18
 
 # banda de rojo
-bR = np.load(os.path.join('..', '..', 'clip', 'LC08_L1TP_225084_20180213_20180222_01_T1_sr_band4_clip.npy'))
+bR = np.load(os.path.join('..', '..', 'clip', 'LC08_L1TP_225084_20180213_20180222_01_T1_sr_band5_clip.npy'))
 
 # banda de infrarojo cercano
-bNIR = np.load(os.path.join('..', '..', 'clip', 'LC08_L1TP_225084_20180213_20180222_01_T1_sr_band5_clip.npy'))
+bNIR = np.load(os.path.join('..', '..', 'clip', 'LC08_L1TP_225084_20180213_20180222_01_T1_sr_band4_clip.npy'))
 
 # calculamos NDVI y truncamos posibles problemas
 ndvi = (bR - bNIR) / (bR + bNIR)
@@ -130,7 +130,7 @@ clases_ndvi[ndvi > 0.4] = 4
 q = 1    
 vmin = np.percentile(clases_ndvi.flatten(), q)
 vmax = np.percentile(clases_ndvi.flatten(), 100 - q)
-color_map = matplotlib.colors.ListedColormap(['darkgreen', 'g', 'yellowgreen', 'y', 'black'])
+color_map = matplotlib.colors.ListedColormap(['black', 'y', 'yellowgreen', 'g', 'darkgreen'])
 plt.imshow(clases_ndvi, cmap = color_map, vmin = vmin, vmax = vmax)
 
 plt.show()
