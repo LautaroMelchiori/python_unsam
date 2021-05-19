@@ -2,6 +2,7 @@ import numpy as np
 import os
 import matplotlib.pyplot as plt
 import matplotlib.colors
+import matplotlib.patches as mpatches
 
 # Ejercicio 9.15
 def crear_img_png(carpeta, nombre_banda, nombre = False):
@@ -127,10 +128,33 @@ clases_ndvi[mask] = 3
 # areas con vegetacion densa
 clases_ndvi[ndvi > 0.4] = 4
 
-q = 1    
+# limites
+q = 1
 vmin = np.percentile(clases_ndvi.flatten(), q)
 vmax = np.percentile(clases_ndvi.flatten(), 100 - q)
+
+fig = plt.figure(figsize=(7,3))
+
+# agregamos un poco de espacio
+ax = fig.add_axes([0.1, 0.1, 0.5, 0.65])
+
+# creo color map
 color_map = matplotlib.colors.ListedColormap(['black', 'y', 'yellowgreen', 'g', 'darkgreen'])
-plt.imshow(clases_ndvi, cmap = color_map, vmin = vmin, vmax = vmax)
+
+# genero la imagen
+ax.imshow(clases_ndvi, cmap = color_map, vmin = vmin, vmax = vmax)
+
+# Genero leyenda
+texts = ['Sin vegetacion', 'Area desnuda', 'Vegetacion baja',
+         'Vegetacion moderada', 'Vegetacion densa']
+patches = [mpatches.Patch(color=color_map(i), label="{:s}".format(texts[i]) ) for i in range(len(texts))]
+ax.legend(handles=patches, bbox_to_anchor=(1.01, 1.03), loc='upper left', ncol=1 )
+
+# sacamos los ejes para que se vea mas lindo
+plt.axis('off')
+
+plt.title('Landsat 8 - Clases de NDVI')
+
+plt.savefig('NDVI_plot.png')
 
 plt.show()
