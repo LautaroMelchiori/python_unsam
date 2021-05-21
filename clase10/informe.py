@@ -1,5 +1,5 @@
 # informe_funciones.py
-import csv
+from camion import Camion
 from fileparse import parse_csv
 from lote import Lote
 import formato_tabla
@@ -16,8 +16,9 @@ def leer_camion(nombre_archivo):
     Devuelve una lista de objetos Lote con cada lote del camion
     """
     with open(nombre_archivo, 'rt') as filas:
-        lotes = parse_csv(filas, types = [str, int, float])
-        return [Lote(lot['nombre'], lot['cajones'], lot['precio']) for lot in lotes]
+        lotes = parse_csv(filas, select = ['nombre','cajones','precio'], types = [str, int, float])
+        camion = [Lote(lot['nombre'], lot['cajones'], lot['precio']) for lot in lotes]
+        return Camion(camion)
 #--------------------------------------------------------------------------------------------------------------------------
 # Ejercicio 2.17
 # Modificado ejercicio 6.11
