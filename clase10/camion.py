@@ -5,6 +5,9 @@ class Camion:
     def __init__(self, lotes):
         self.lotes = lotes
 
+    def __iter__(self):
+        return self.lotes.__iter__()
+
     def precio_total(self):
         return sum([l.costo() for l in self.lotes])
 
