@@ -5,10 +5,7 @@ import informe
 
 def costo_camion(archivo_camion):
     camion = informe.leer_camion(archivo_camion)
-    total = 0
-    for lote in camion:
-        total += lote.costo()
-    print(f'Costo total {total}')
+    print(f'Costo total {camion.precio_total()}')
 
 # Ejercicio 7.2 y 7.3
 
