@@ -5,28 +5,28 @@ import sys
 import informe
 from vigilante import vigilar
 
-def filtrar_datos(filas, nombres):
-    for fila in filas:
-        if fila['nombre'] in nombres:
-            yield fila
+# def filtrar_datos(filas, nombres):
+#     for fila in filas:
+#         if fila['nombre'] in nombres:
+#             yield fila
 
-def cambiar_tipo(rows, types):
-    for row in rows:
-        yield [func(val) for func, val in zip(types, row)]
+# def cambiar_tipo(rows, types):
+#     for row in rows:
+#         yield [func(val) for func, val in zip(types, row)]
 
-def hace_dicts(rows, headers):
-    for row in rows:
-        yield dict(zip(headers, row))
+# def hace_dicts(rows, headers):
+#     for row in rows:
+#         yield dict(zip(headers, row))
 
-def elegir_columnas(rows, indices):
-    for row in rows:
-        yield [row[index] for index in indices]
+# def elegir_columnas(rows, indices):
+#     for row in rows:
+#         yield [row[index] for index in indices]
 
 def parsear_datos(lines):
     rows = csv.reader(lines)
-    rows = elegir_columnas(rows, [0, 1, 2])
-    rows = cambiar_tipo(rows, [str, float, int])
-    rows = hace_dicts(rows, ['nombre', 'precio', 'volumen'])
+    rows = ([row[index] for index in [0, 1, 2]] for row in rows)
+    rows = ([func(val) for func, val in zip([str, float, int], row)] for row in rows)
+    rows = (dict(zip(['nombre', 'precio', 'volumen'], row)) for row in rows)
     return rows
 
 def ticker(camion_file, log_file, fmt):
@@ -44,7 +44,7 @@ def ticker(camion_file, log_file, fmt):
 
     filas = vigilar(log_file)
     filas = parsear_datos(filas)
-    filas = filtrar_datos(filas, camion)
+    filas = (fila for fila in filas if fila['nombre'] in camion)
 
     # creamos el formateador
     formateador = informe.formato_tabla.crear_formateador(fmt)
