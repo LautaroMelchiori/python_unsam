@@ -16,7 +16,7 @@ class Camion:
             return self.lotes + [lote]
     
     def __contains__(self, key):
-        return key in [lote.nombre for lote in self.lotes]
+        return key in (lote.nombre for lote in self.lotes)
     
     def __getitem__(self, index):
         return self.lotes[index]
@@ -31,7 +31,7 @@ class Camion:
         self.lotes.append(lote)
         
     def precio_total(self):
-        return sum([l.costo() for l in self.lotes])
+        return sum(l.costo() for l in self.lotes)
 
     def contar_cajones(self):
         from collections import Counter
