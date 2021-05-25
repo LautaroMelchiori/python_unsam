@@ -64,7 +64,23 @@ class Mundo(object):
 
     def etapa_reproduccion(self):
         print_debug(f"Iniciando Reproducción en ciclo {self.ciclo}", self.debug)
-        # pass
+        for p in self.tablero.posiciones_ocupadas():
+            animal = self.tablero.posicion(p)
+
+            if not animal.puede_reproducir():
+                continue
+    
+            animales_vecinos = self.tablero.posiciones_vecinas_con_ocupantes(p)
+            posiciones_libres = self.tablero.posiciones_libres()
+
+            pos = animal.reproducirse(animales_vecinos, posiciones_libres)
+
+            if pos is not None:
+                if animal.es_leon():
+                    self.tablero.ubicar(pos, Leon())
+                else:
+                    self.tablero.ubicar(pos, Antilope())
+
 
     def cerrar_un_ciclo(self):
         print_debug(f"Concluyendo ciclo {self.ciclo}", self.debug)
