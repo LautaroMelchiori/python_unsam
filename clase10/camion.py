@@ -3,6 +3,9 @@
 class Camion:
 
     def __init__(self, lotes):
+        """
+        Asumimos que el camion sera inicializado con una lista de Lotes
+        """
         self.lotes = lotes
 
     def __len__(self):
@@ -12,6 +15,9 @@ class Camion:
         return self.lotes.__iter__()
 
     def __add__(self, lote):
+        # aca se presupone que el camion ya tiene lotes en el cargamento
+        # entonces se chequea que el elemento que estamos queriendos sumar
+        # sea del tipo Lote
         if isinstance(lote, type(self.lotes[0])):
             return self.lotes + [lote]
     
