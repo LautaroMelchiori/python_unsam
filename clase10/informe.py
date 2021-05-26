@@ -9,6 +9,7 @@ import formato_tabla
 # Modificado ejercicio 6.11
 # Modificado ejercicio 7.5
 # Modificado ejercicio 9.4
+# Modificado ejercicio 10.2
 
 def leer_camion(nombre_archivo):
     """
