@@ -78,7 +78,6 @@ print(f'ECM: {(errores ** 2).mean()}')
 grilla_y = a * (grilla_x ** 2) + (b * grilla_x) + c
 plt.plot(grilla_x, grilla_y, c = 'red', label = 'Regresion multiple con x y x² como regresores')
 
-
 plt.scatter(x = x , y = y)
 
 plt.legend()
