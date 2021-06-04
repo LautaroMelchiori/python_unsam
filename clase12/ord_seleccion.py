@@ -24,6 +24,7 @@ def ord_seleccion(lista):
 
     return comparaciones
 
+
 def buscar_max(lista, a, b):
     """Devuelve la posición del máximo elemento en un segmento de
        lista de elementos comparables.

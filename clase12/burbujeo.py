@@ -14,6 +14,6 @@ def ord_burbujeo(lista):
                 lista[j], lista[j + 1] = lista[j + 1], lista[j]
 
     return comparaciones
-            
-# La complejidad de este algoritmo es de O(n²), 
+
+# La complejidad de este algoritmo es de O(n²),
 # ya que mediante los ciclos anidados recorre n veces la lista de longitud n.

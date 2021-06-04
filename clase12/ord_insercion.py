@@ -14,6 +14,7 @@ def ord_insercion(lista):
 
     return comparaciones
 
+
 def reubicar(lista, p):
     """Reubica al elemento que está en la posición p de la lista
        dentro del segmento [0:p-1].
