@@ -21,7 +21,9 @@ np.random.seed(250)
 def merge_sort(lista, comps=0):
     """
     Ordena lista mediante el método merge sort.
+
     Pre: lista debe contener elementos comparables.
+
     Devuelve: un diccionario con la lista ordenada y
     la cantidad de comparaciones hechas para ordenarla
     """
@@ -46,9 +48,15 @@ def merge_sort(lista, comps=0):
 
 
 def merge(lista1, lista2):
-    """Intercala los elementos de lista1 y lista2 de forma ordenada.
-       Pre: lista1 y lista2 deben estar ordenadas.
-       Devuelve: una lista con los elementos de lista1 y lista2."""
+    """
+    Intercala los elementos de lista1 y lista2 de forma ordenada.
+
+    Pre: lista1 y lista2 deben estar ordenadas.
+
+    Devuelve: devuelve un diccionario con una 
+    lista con los elementos de lista1 y lista2
+    y la cantidad de comparaciones realizadas
+    """
     i, j = 0, 0
     resultado = []
     comps = 0
@@ -70,9 +78,12 @@ def merge(lista1, lista2):
 
 
 def ord_insercion(lista):
-    """Ordena una lista de elementos según el método de inserción.
-       Pre: los elementos de la lista deben ser comparables.
-       Post: la lista está ordenada."""
+    """
+    Ordena una lista de elementos según el método de inserción.
+
+    Pre: los elementos de la lista deben ser comparables.
+    Post: la lista está ordenada.
+    """
 
     comparaciones = 0
 
@@ -87,9 +98,12 @@ def ord_insercion(lista):
 
 
 def reubicar(lista, p):
-    """Reubica al elemento que está en la posición p de la lista
-       dentro del segmento [0:p-1].
-       Pre: p tiene que ser una posicion válida de lista."""
+    """
+    Reubica al elemento que está en la posición p de la lista
+    dentro del segmento [0:p-1].
+
+    Pre: p tiene que ser una posicion válida de lista.
+    """
 
     comparaciones = 0
 
@@ -127,9 +141,12 @@ def ord_burbujeo(lista):
 
 
 def ord_seleccion(lista):
-    """Ordena una lista de elementos según el método de selección.
-       Pre: los elementos de la lista deben ser comparables.
-       Post: la lista está ordenada."""
+    """
+    Ordena una lista de elementos según el método de selección.
+
+    Pre: los elementos de la lista deben ser comparables.
+    Post: la lista está ordenada.
+    """
 
     comparaciones = 0
 
@@ -154,10 +171,13 @@ def ord_seleccion(lista):
 
 
 def buscar_max(lista, a, b):
-    """Devuelve la posición del máximo elemento en un segmento de
-       lista de elementos comparables.
-       La lista no debe ser vacía.
-       a y b son las posiciones inicial y final del segmento"""
+    """
+    Devuelve la posición del máximo elemento en un segmento de
+    lista de elementos comparables.
+
+    La lista no debe ser vacía.
+    a y b son las posiciones inicial y final del segmento
+    """
 
     pos_max = a
     for i in range(a + 1, b + 1):
