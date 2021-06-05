@@ -229,3 +229,22 @@ plt.legend()
 plt.savefig('Comparaciones.png')
 
 plt.show()
+
+
+"""
+En el grafico resultante podemos ver claramente que el algoritmo merge sort
+es el mas eficiente de todos, y cuanto mas se agrande la lista a ordenar
+mas se nota esta diferencia de complejidad algoritmica.
+
+Los metodos de seleccion y burbujeo realizan una cantidad fija e 
+(e igual entre los dos metodos) de comparaciones, que solo depende de
+la longitud de la lista y no del estado de la misma.
+
+El metodo de insercion (la grafica esta suavizada) realiza mas comparaciones
+que el metodo merge (menos en algunas listas pequeñas en las que puede llegar
+a ser mas eficiente, pero en el caso general y en listas relativamente grandes
+merge es mejor.) pero suele ser mas eficiente que los metodos de burbujeo y seleccion,
+ya que el metodo de insercion no solo depende de la longitud de la misma, sino que tambien
+del estado de la misma, pudiendo llegar a tardar tiempo lineal en ejecutarse en el mejor de los casos
+(lista ya ordenada).
+"""
