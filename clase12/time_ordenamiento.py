@@ -222,9 +222,15 @@ for metodo in metodos:
     tiempos[metodo] = experimento_timeit(metodo, listas, 1)
 
     tiempos[metodo] = pd.Series(tiempos[metodo])
-    tiempos[metodo] = tiempos[metodo].rolling(30, min_periods=1).mean()
+    tiempos[metodo] = tiempos[metodo].rolling(50, min_periods=1).mean()
 
     plt.plot(tiempos[metodo], label=metodo)
+
+
+plt.xlabel('Longitud de la lista a ordenar')
+plt.ylabel('Tiempo tardado (segundos)')
+
+# plt.savefig('Comparaciones_temporales.png')
 
 plt.legend()
 plt.show()
