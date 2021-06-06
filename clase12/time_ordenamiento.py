@@ -1,4 +1,5 @@
 # ejercicio 12.8
+# ejercicio 12.9
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -42,6 +43,31 @@ def merge(lista1, lista2):
     resultado += lista2[j:]
 
     return resultado
+
+
+def ord_merge3sort(lista):
+    if len(lista) < 2:
+        lista_nueva = lista
+    elif len(lista) == 2:
+        return lista if lista[0] <= lista[1] else lista[::-1]
+    else:
+        primer_corte = len(lista) // 3
+        segundo_corte = primer_corte * 2
+
+        primer_tercio = ord_merge3sort(lista[:primer_corte])
+        segundo_tercio = ord_merge3sort(lista[primer_corte:segundo_corte])
+        tercer_tercio = ord_merge3sort(lista[segundo_corte:])
+
+        lista_nueva = merge3sort(primer_tercio, segundo_tercio, tercer_tercio)
+
+    return lista_nueva
+
+
+def merge3sort(lista1, lista2, lista3):
+    merge_primeras2 = merge(lista1, lista2)
+    merge_total = merge(merge_primeras2, lista3)
+
+    return merge_total
 
 
 def ord_insercion(lista):
@@ -163,7 +189,7 @@ def experimento_timeit(metodo, listas, num):
     El parámetro 'listas' debe ser una lista de listas.
 
     El parametro 'metodo' debe ser una cadena con un metodo
-    Opciones de  metodos: seleccion, merge, burbujeo, insercion
+    Opciones de  metodos: seleccion, merge, burbujeo, insercion, merge3sort
 
     El parámetro 'num' indica la cantidad de repeticiones a ejecutar el método para cada lista.
     """
@@ -187,9 +213,9 @@ def experimento_timeit(metodo, listas, num):
     return tiempos
 
 
-listas = generar_listas(256)
+listas = generar_listas(500)
 
-metodos = ['seleccion', 'insercion', 'burbujeo', 'merge']
+metodos = ['seleccion', 'insercion', 'burbujeo', 'merge', 'merge3sort']
 tiempos = {}
 
 for metodo in metodos:
