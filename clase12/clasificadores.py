@@ -63,5 +63,5 @@ n = 100
 resultados = comparar_modelos(modelos, nombres, n)
 
 # imprimimos los resultados
-for i, (nombre, promedio) in enumerate(resultados.items()):
+for nombre, promedio in resultados.items():
     print(f'Score promedio {nombre}: {promedio:.2f}')
