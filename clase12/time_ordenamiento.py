@@ -229,8 +229,8 @@ for metodo in metodos:
 
 plt.xlabel('Longitud de la lista a ordenar')
 plt.ylabel('Tiempo tardado (segundos)')
+plt.legend()
 
 # plt.savefig('Comparaciones_temporales.png')
 
-plt.legend()
 plt.show()
