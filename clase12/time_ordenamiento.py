@@ -9,6 +9,20 @@ import timeit as tt
 np.random.seed(30)
 
 
+def ord_burbujeo_rec(lista, idx=1, comps=0):
+    """
+    Recibe una lista y la ordena
+    """
+    if idx == len(lista):
+        return lista
+
+    for j in range(len(lista) - idx):
+        if lista[j] > lista[j + 1]:
+            lista[j], lista[j + 1] = lista[j + 1], lista[j]
+
+    return ord_burbujeo_rec(lista, idx + 1, comps)
+
+
 def ord_merge(lista):
     """Ordena lista mediante el método merge sort.
        Pre: lista debe contener elementos comparables.
@@ -213,9 +227,10 @@ def experimento_timeit(metodo, listas, num):
     return tiempos
 
 
-listas = generar_listas(500)
+listas = generar_listas(300)
 
-metodos = ['seleccion', 'insercion', 'burbujeo', 'merge', 'merge3sort']
+metodos = ['seleccion', 'insercion', 'burbujeo',
+           'merge', 'merge3sort', 'burbujeo_rec']
 tiempos = {}
 
 for metodo in metodos:
